@@ -85,14 +85,24 @@ export default function TabHome() {
                   <Text>Cidade: {item.cidade}</Text>
                   <Text>Projeto: {item.projeto}</Text>
                 </View>
-                <TouchableOpacity
-                  onPress={() => {
-                    router.push(`/modal?id=${item.id}`);
-                  }}
-                  style={{ marginTop: 50, marginRight: 10 }}
-                > 
-                  <FontAwesome name="edit" size={28} color="red" />
-                </TouchableOpacity>
+                <View style={{ alignItems: "center"}}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      router.push(`/modal?id=${item.id}`);
+                    }}
+                    style={{ marginTop: 30 }}
+                  > 
+                    <FontAwesome name="edit" size={28} color="red" />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => {
+                      router.push(`/modal?id=${item.id}`);
+                    }}
+                    style={{ marginTop: 30 }}
+                  > 
+                    <FontAwesome name="trash" size={28} color="grey" />
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
           )}
