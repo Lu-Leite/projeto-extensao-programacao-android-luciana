@@ -69,17 +69,21 @@ export default function TabHome() {
                 style={{
                   flexDirection: "row",
                   justifyContent: "space-between",
+                  borderWidth: 1, // Adicionada borda simples
+                  borderColor: "black", // Cor da borda
+                  borderRadius: 5, // Bordas arredondadas
+                  margin: 5, // Margem externa
+                  padding: 10, // Margem interna aumentada
                 }}
               >
                 <View>
-                  <Text>{item.name}</Text>
-                  <Text>{item.email}</Text>
-                  <Text>{item.telefone}</Text>
-                  <Text>{item.cnpj}</Text>
-                  <Text>{item.datainicio}</Text>
-                  <Text>{item.cidade}</Text>
-                  <Text>{item.projeto}</Text>
-                  
+                  <Text>Nome: {item.name}</Text>
+                  <Text>Email: {item.email}</Text>
+                  <Text>Telefone: {item.telefone}</Text>
+                  <Text>CNPJ: {item.cnpj}</Text>
+                  <Text>Data de Início: {item.datainicio}</Text>
+                  <Text>Cidade: {item.cidade}</Text>
+                  <Text>Projeto: {item.projeto}</Text>
                 </View>
                 <TouchableOpacity
                   onPress={() => {
