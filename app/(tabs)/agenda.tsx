@@ -72,24 +72,24 @@ export default function TabHome() {
                   flexDirection: "row",
                   justifyContent: "space-between",
                   borderWidth: 1, // Adicionada borda simples
-                  borderColor: "black", // Cor da borda
+                  borderColor: "green", // Cor da borda
                   borderRadius: 5, // Bordas arredondadas
                   margin: 5, // Margem externa
                   padding: 10, // Margem interna aumentada
                 }}
               >
                 <View>
-                  <Text>Data: {item.data}</Text>
-                  <Text>Compromisso: {item.compromisso}</Text>
+                  <Text style={styles.text}>Data: {item.data}</Text>
+                  <Text style={styles.text}>Compromisso: {item.compromisso}</Text>
                 </View>
                 <View style={{ alignItems: "center"}}>
                   <TouchableOpacity
                     onPress={() => {
                       router.push(`/modalAgenda?id=${item.id}`);
                     }}
-                    style={{ marginTop: 30 }}
+                    style={{ marginTop: 10 }}
                   > 
-                    <FontAwesome name="edit" size={28} color="red" />
+                    <FontAwesome name="edit" size={28} color="gold" />
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={() => {
@@ -112,7 +112,10 @@ export default function TabHome() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "beige", // Cor de fundo bege claro
+    backgroundColor: "black", // Cor de fundo preta
+  },
+  text: {
+    color: "white", // Cor do texto branca
   },
   button: {
     height: 30,
