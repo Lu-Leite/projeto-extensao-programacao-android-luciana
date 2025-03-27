@@ -12,16 +12,7 @@ import { useSQLiteContext } from "expo-sqlite";
 
 export default function TabHome() {
   const [data, setData] = React.useState<
-    {
-      id: number;
-      name: string;
-      cnpj: string;
-      email: string;
-      telefone: string;
-      cidade: string;
-      datainicio: string;
-      projeto: string
-    }[]
+    { id: number; data: string; compromisso: string}[]
   >([]);
   const database = useSQLiteContext();
   useFocusEffect(
@@ -44,7 +35,7 @@ export default function TabHome() {
 
   const headerRight = () => (
     <TouchableOpacity
-      onPress={() => router.push("/modal")}
+      onPress={() => router.push("/modalAgenda")}
       style={{ marginRight: 20 }}
     >
       <FontAwesome name="plus-circle" size={28} color="blue" />
@@ -54,14 +45,9 @@ export default function TabHome() {
   const loadData = async () => {
     const result = await database.getAllAsync<{
       id: number;
-      name: string;
-      cnpj: string;
-      email: string;
-      telefone: string;
-      cidade: string;
-      datainicio: string;
-      projeto: string;
-    }>("SELECT * FROM users");
+      data: string;
+      compromisso: string;
+    }>("SELECT * FROM agenda");
     setData(result);
   };
 
@@ -76,13 +62,8 @@ export default function TabHome() {
           }: {
             item: { 
               id: number;
-              name: string;
-              email: string;
-              telefone: string;
-              cnpj: string;
-              datainicio: string;
-              cidade: string;
-              projeto: string; 
+              data: string;
+              compromisso: string; 
             };
           }) => (
             <View style={{ padding: 10 }}>
@@ -98,18 +79,13 @@ export default function TabHome() {
                 }}
               >
                 <View>
-                  <Text>Nome: {item.name}</Text>
-                  <Text>Email: {item.email}</Text>
-                  <Text>Telefone: {item.telefone}</Text>
-                  <Text>CNPJ: {item.cnpj}</Text>
-                  <Text>Data de Início: {item.datainicio}</Text>
-                  <Text>Cidade: {item.cidade}</Text>
-                  <Text>Projeto: {item.projeto}</Text>
+                  <Text>Data: {item.data}</Text>
+                  <Text>Compromisso: {item.compromisso}</Text>
                 </View>
                 <View style={{ alignItems: "center"}}>
                   <TouchableOpacity
                     onPress={() => {
-                      router.push(`/modal?id=${item.id}`);
+                      router.push(`/modalAgenda?id=${item.id}`);
                     }}
                     style={{ marginTop: 30 }}
                   > 
