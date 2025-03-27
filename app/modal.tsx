@@ -142,7 +142,7 @@ export default function ItemModal() {
           onPress={() => router.back()}
           style={[styles.button, { backgroundColor: "red" }]}
         >
-          <Text style={styles.buttonText}>Cancel</Text>
+          <Text style={styles.buttonText}>Cancelar</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={async () => {
@@ -150,7 +150,7 @@ export default function ItemModal() {
           }}
           style={[styles.button, { backgroundColor: "blue" }]}
         >
-          <Text style={styles.buttonText}>{editMode ? "Update" : "Save"}</Text>
+          <Text style={styles.buttonText}>{editMode ? "Atualizar" : "Salvar"}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
