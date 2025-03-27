@@ -1,19 +1,18 @@
-# Expo Router Example - Tabs, Modal and SQLite
+## Projeto de Extensão da Disciplina Programação para Dispositivos Móveis em Android
 
-Use [`expo-router`](https://docs.expo.dev/router/introduction/) to build native navigation using files in the `app/` directory.
+Curso: Ciência da Computação
+Instituição: Estácio
 
-## VIDEO WALKTHROUGH
-- https://youtu.be/vgPdAARd6Gw?si=zW5WAuDE7af2wgTt
+Aluna: Luciana Barbosa Leite
 
-## 🚀 How to use
+## Como utilizar
 
+Instalar as dependências
 ```sh
-npx create-expo-app@latest -e with-router
+npm install
 ```
 
-## Links
-
-- [Expo Router: Docs](https://docs.expo.dev/router/introduction/)
-- [Expo Router Tabs: Docs](https://docs.expo.dev/router/advanced/tabs/)
-- [Expo Router Modal: Docs](https://docs.expo.dev/router/advanced/modals/)
-- [Expo SQLite: Docs](https://docs.expo.dev/versions/latest/sdk/sqlite/)
+Executar o app:
+```sh
+npm run start
+```
