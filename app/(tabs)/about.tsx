@@ -8,7 +8,7 @@ export default function TabAbout() {
   return (
     <View style={[styles.container, { padding: 20 }]}>
       <Text style={styles.texto}>Este é um trabalho de Extensão da disciplina Programação para Dispositivos Móveis para Android.</Text>
-      <Text style={[styles.texto, { marginTop: 10 }]}>Desenvolvedora: Luciana Barbosa Leite</Text>
+      <Text style={[styles.texto, { marginTop: 20 }]}>Aluna: Luciana Barbosa Leite</Text>
       <TouchableOpacity onPress={linkExternal} style={styles.container}>
         <Text style={styles.link}>Repositório do Projeto</Text>
         {/* <StatusBar style="auto" /> */}
