@@ -21,6 +21,18 @@ export default function TabHome() {
     }, [])
   );
 
+  const handleDelete = async (id: number) => {
+      try {
+        await database.runAsync(
+          `DELETE FROM users WHERE id = ?;`,
+          [id]
+        );
+        loadData();
+      } catch (error) {
+        console.error("Error deleting item:", error);
+      }
+    };
+
   const headerRight = () => (
     <TouchableOpacity
       onPress={() => router.push("/modal")}
@@ -96,7 +108,7 @@ export default function TabHome() {
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={() => {
-                      router.push(`/modal?id=${item.id}`);
+                      handleDelete(item.id);
                     }}
                     style={{ marginTop: 30 }}
                   > 
