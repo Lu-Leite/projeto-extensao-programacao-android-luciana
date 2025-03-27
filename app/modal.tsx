@@ -85,7 +85,7 @@ export default function ItemModal() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Stack.Screen options={{ title: "Item Modal" }} />
+      <Stack.Screen options={{ title: editMode ? "Editar" : "Novo Cliente" }} />
       <View
         style={{
           gap: 20,
