@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 
-export default function TabSettings() {
+export default function TabAbout() {
   return (
     <View style={styles.container}>
       <Text>Home</Text>

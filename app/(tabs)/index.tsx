@@ -85,11 +85,11 @@ export default function TabHome() {
                   onPress={() => {
                     router.push(`/modal?id=${item.id}`);
                   }}
-                  style={styles.button}
-                >
-                  <Text style={styles.buttonText}>Editar</Text>
+                  style={{ marginRight: 10 }}
+                > 
+                  <FontAwesome name="edit" size={28} color="red" />
                 </TouchableOpacity>
-              </View>
+              </View>''
             </View>
           )}
         />
@@ -111,10 +111,5 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: "blue",
     alignContent: "flex-end",
-  },
-  buttonText: {
-    fontSize: 12,
-    fontWeight: "bold",
-    color: "white",
-  },
+  }
 });
