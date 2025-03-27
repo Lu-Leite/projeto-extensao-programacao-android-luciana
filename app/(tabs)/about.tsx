@@ -3,7 +3,8 @@ import { View, Text, StyleSheet } from "react-native";
 export default function TabAbout() {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <Text>Este é um trabalho de Extensão da disciplina Programação para Dispositivos Móveis para Android.</Text>
+      <Text>Desenvolvedora: Luciana Barbosa Leite</Text>
     </View>
   );
 }
