@@ -12,12 +12,12 @@ import { useSQLiteContext } from "expo-sqlite";
 
 export default function TabHome() {
   const [data, setData] = React.useState<
-    { id: number; name: string; email: string }[]
+    { id: number; name: string; cnpj: string, email: string, telefone: string, cidade: string, datainicio: string, projeto: string }[]
   >([]);
   const database = useSQLiteContext();
   useFocusEffect(
     useCallback(() => {
-      loadData(); // Fetch data when the screen is focused
+      loadData();
     }, [])
   );
 
@@ -34,12 +34,12 @@ export default function TabHome() {
     const result = await database.getAllAsync<{
       id: number;
       name: string;
+      cnpj: string;
       email: string;
-      telefone: String;
-      cnpj: String;
-      datainicio: String;
-      cidade: String;
-      projeto: String;
+      telefone: string;
+      cidade: string;
+      datainicio: string;
+      projeto: string;
     }>("SELECT * FROM users");
     setData(result);
   };
@@ -53,7 +53,16 @@ export default function TabHome() {
           renderItem={({
             item,
           }: {
-            item: { id: number; name: string; email: string };
+            item: { 
+              id: number;
+              name: string;
+              email: string;
+              telefone: string;
+              cnpj: string;
+              datainicio: string;
+              cidade: string;
+              projeto: string; 
+            };
           }) => (
             <View style={{ padding: 10 }}>
               <View

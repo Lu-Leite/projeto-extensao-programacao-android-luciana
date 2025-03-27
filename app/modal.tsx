@@ -17,6 +17,11 @@ export default function ItemModal() {
   // local state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [cnpj, setCnpj] = useState("");
+  const [datainicio, setDatainicio] = useState("");
+  const [cidade, setCidade] = useState("");
+  const [projeto, setProjeto] = useState("");
 
   // local state for edit mode
   const [editMode, setEditMode] = useState(false);
@@ -36,17 +41,27 @@ export default function ItemModal() {
     const result = await database.getFirstAsync<{
       id: number;
       name: string;
+      cnpj: string;
       email: string;
+      telefone: string;
+      cidade: string;
+      datainicio: string;
+      projeto: string;
     }>(`SELECT * FROM users WHERE id = ?`, [parseInt(id as string)]);
     setName(result?.name!);
+    setCnpj(result?.cnpj!);
     setEmail(result?.email!);
+    setTelefone(result?.telefone!);
+    setCidade(result?.cidade!);
+    setDatainicio(result?.datainicio!);
+    setProjeto(result?.projeto!);
   };
 
   const handleSave = async () => {
     try {
       const response = await database.runAsync(
-        `INSERT INTO users (name, email, image) VALUES (?, ?, ?)`,
-        [name, email, ""]
+        `INSERT INTO users (name, cnpj, email, telefone, cidade, datainicio, projeto) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+        [name, cnpj, email, telefone, cidade, datainicio, projeto]
       );
       console.log("Item saved successfully:", response?.changes!);
       router.back();
@@ -58,8 +73,8 @@ export default function ItemModal() {
   const handleUpdate = async () => {
     try {
       const response = await database.runAsync(
-        `UPDATE users SET name = ?, email = ? WHERE id = ?`,
-        [name, email, parseInt(id as string)]
+        `UPDATE users SET name = ?, cnpj = ?, email = ?, telefone = ?, cidade = ?, datainicio = ?, projeto = ? WHERE id = ?`,
+        [name, cnpj, email, telefone, cidade, datainicio, projeto, parseInt(id as string)]
       );
       console.log("Item updated successfully:", response?.changes!);
       router.back();
@@ -78,9 +93,15 @@ export default function ItemModal() {
         }}
       >
         <TextInput
-          placeholder="Name"
+          placeholder="Nome"
           value={name}
           onChangeText={(text) => setName(text)}
+          style={styles.textInput}
+        />
+        <TextInput
+          placeholder="CNPJ"
+          value={cnpj}
+          onChangeText={(text) => setCnpj(text)}
           style={styles.textInput}
         />
         <TextInput
@@ -88,6 +109,31 @@ export default function ItemModal() {
           value={email}
           keyboardType="email-address"
           onChangeText={(text) => setEmail(text)}
+          style={styles.textInput}
+        />
+        <TextInput
+          placeholder="Telefone"
+          value={telefone}
+          keyboardType="number-pad"
+          onChangeText={(text) => setTelefone(text)}
+          style={styles.textInput}
+        />
+        <TextInput
+            placeholder="Cidade"
+            value={cidade}
+            onChangeText={(text) => setCidade(text)}
+            style={styles.textInput}
+        />
+        <TextInput
+          placeholder="Data Inicio"
+          value={datainicio}
+          onChangeText={(text) => setDatainicio(text)}
+          style={styles.textInput}
+        />
+        <TextInput
+          placeholder="Projeto"
+          value={projeto}
+          onChangeText={(text) => setProjeto(text)}
           style={styles.textInput}
         />
       </View>
