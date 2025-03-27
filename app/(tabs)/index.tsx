@@ -35,7 +35,7 @@ export default function TabHome() {
 
   const headerRight = () => (
     <TouchableOpacity
-      onPress={() => router.push("/modal")}
+      onPress={() => router.push("/modalCliente")}
       style={{ marginRight: 20 }}
     >
       <FontAwesome name="plus-circle" size={28} color="blue" />
@@ -100,7 +100,7 @@ export default function TabHome() {
                 <View style={{ alignItems: "center"}}>
                   <TouchableOpacity
                     onPress={() => {
-                      router.push(`/modal?id=${item.id}`);
+                      router.push(`/modalCliente?id=${item.id}`);
                     }}
                     style={{ marginTop: 30 }}
                   > 
