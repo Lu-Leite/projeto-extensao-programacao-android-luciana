@@ -139,18 +139,18 @@ export default function ItemModal() {
       </View>
       <View style={{ flex: 1, flexDirection: "row", gap: 20 }}>
         <TouchableOpacity
-          onPress={() => router.back()}
-          style={[styles.button, { backgroundColor: "red" }]}
-        >
-          <Text style={styles.buttonText}>Cancelar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
           onPress={async () => {
             editMode ? handleUpdate() : handleSave();
           }}
-          style={[styles.button, { backgroundColor: "blue" }]}
+          style={[styles.button, { backgroundColor: "green" }]}
         >
           <Text style={styles.buttonText}>{editMode ? "Atualizar" : "Salvar"}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => router.back()}
+          style={[styles.button, { backgroundColor: "orange" }]}
+        >
+          <Text style={styles.buttonText}>Cancelar</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
